@@ -1,19 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
   function getInputValue(selector) {
-    return document.querySelector(selector).value || "";
+    const element = document.querySelector(selector);
+    return element ? element.value || "" : "";
   }
+
+  function getAllElement(selector) {
+    return document.querySelectorAll(selector);
+  }
+
+  /* =========== Step 1 == */
+  var businessTypeVal = "";
+  var freeFormationval = "";
+  var dormantRadioVal = "";
+  var selfAssessmentsVal = "";
+
+  var turnoverVal = "";
+  var vatRegisteredVal = "";
+
+  var payrollVal = "";
+  var payrollPayslipVal = "";
+
+  var pensionVal = "";
+  var pensionPayslipVal = "";
+
+  var mailForwardVal = "";
+  var statementFilingVal = "";
+  var secretarialServiceVal = "";
 
   const businessType = document.getElementById("businessType");
   const turnover = document.getElementById("turnover");
 
-  const vatRegisteredRadios = document.querySelectorAll(
-    "input[name='vat_registered']"
-  );
-  const payrollRadios = document.querySelectorAll('input[name="payroll"]');
+  const vatRegisteredRadios = getAllElement("input[name='vat_registered']");
+  const payrollRadios = getAllElement('input[name="payroll"]');
 
-  const pensionRadios = document.querySelectorAll(
-    'input[name="pension_scheme"]'
-  );
+  const pensionRadios = getAllElement('input[name="pension_scheme"]');
 
   const selfAssessmentsblock = document.getElementById("self_assessments");
   const dormantblock = document.getElementById("dormant");
@@ -24,27 +44,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const mailForwardChecked = document.querySelector(
     'input[name="mail_forward"]'
   );
-  const statementFilingServiceRadios = document.querySelectorAll(
+  const statementFilingServiceRadios = getAllElement(
     'input[name="statement_filing_service"]'
   );
-  const secretarialServiceRadios = document.querySelectorAll(
+  const secretarialServiceRadios = getAllElement(
     'input[name="secretarial_service"]'
   );
 
   const totalPayment = document.querySelector(".total");
+  const errorMessage = document.querySelector(".error-message");
   const orderReviewTbody = document.querySelector("#order-review tbody");
   const additionalChargesTbody = document.querySelector(
     "#additional-charges tbody"
   );
 
-  const chargedFields = document.querySelectorAll("[data-charged]");
+  // Callback function to execute when mutations are observed
+  const callback = (mutationList, observer) => {
+    for (const mutation of mutationList) {
+      console.log(mutation);
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "disabled"
+      ) {
+        total[mutation.target.dataset.charged_name] = 0;
+        mutation.target.value = "";
+        upadateTotalValue(total);
+      }
+    }
+  };
+
+  // Create an observer instance linked to the callback function
+  const observer = new MutationObserver(callback);
+
+  // Later, you can stop observing
+  // observer.disconnect();
+
+  const chargedFields = getAllElement("[data-charged]");
 
   chargedFields.forEach((el) => {
     el.addEventListener("change", function (event) {
-      // console.log(total[event.target.dataset.charged_name]);
-      total[event.target.dataset.charged_name] = event.target.dataset.charged;
+      let chargedValue = event.target.dataset.charged;
+      const chargedName = event.target.dataset.charged_name;
+
+      total[chargedName] = chargedValue; // -> 0 => disbled
       upadateTotalValue(total);
     });
+
+    observer.observe(el, { attributes: true });
   });
 
   const total = {
@@ -62,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fCheckbox: 0,
   };
 
+  let viewPayement;
+
   function upadateTotalValue() {
     viewPayement = Object.values(total)
       .reduce((p, a) => parseFloat(p) + parseFloat(a), 0)
@@ -73,6 +121,21 @@ document.addEventListener("DOMContentLoaded", function () {
   stepOne.style.display = "block";
   stepTwo.style.display = "none";
   stepThree.style.display = "none";
+
+  function updateIndicators() {
+    const indicators = getAllElement("#step2-indicator");
+    indicators.forEach((indicator) => {
+      if (businessTypeVal == "Ltdcompany") {
+        if (indicator.classList.contains("hide")) {
+          indicator.classList.remove("hide");
+        }
+        indicator.nextElementSibling?.style.setProperty("--sepWidth", "30%");
+      } else {
+        indicator.classList.add("hide");
+        indicator.nextElementSibling?.style.setProperty("--sepWidth", "40%");
+      }
+    });
+  }
 
   // Button selectors
   const step1Next = document.querySelector("#step1-next");
@@ -92,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
           input.reportValidity();
           return false;
         } else {
-          input.setCustomValidity(""); // Reset custom validity
+          input.setCustomValidity("");
         }
       }
       if (!input.checkValidity() && input.checkVisibility()) {
@@ -107,7 +170,11 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     if (validateStep(stepOne)) {
       stepOne.style.display = "none";
-      stepTwo.style.display = "block";
+      if (businessTypeVal == "Ltdcompany") {
+        stepTwo.style.display = "block";
+      } else {
+        stepThree.style.display = "block";
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
@@ -125,12 +192,18 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     stepTwo.style.display = "none";
     stepOne.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   step3Prev.addEventListener("click", function (e) {
     e.preventDefault();
     stepThree.style.display = "none";
-    stepTwo.style.display = "block";
+    if (businessTypeVal == "Ltdcompany") {
+      stepTwo.style.display = "block";
+    } else {
+      stepOne.style.display = "block";
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   /* =========== Step 1 == */
@@ -155,11 +228,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // buisinessType dependency
   businessType.addEventListener("change", function () {
     businessTypeVal = this.value;
+    updateIndicators();
     if (businessTypeVal === "Partnership" || businessTypeVal === "Ltdcompany") {
       selfAssessmentsblock.classList.remove("hide");
       const input = selfAssessmentsblock.querySelector(
         'input[name="self_assessments"]'
       );
+
       selfAssessmentsVal = input.value;
 
       if (businessTypeVal === "Ltdcompany") {
@@ -180,34 +255,19 @@ document.addEventListener("DOMContentLoaded", function () {
         dormantRadios.forEach((radio) => {
           radio.addEventListener("change", function () {
             dormantRadioVal = this.value;
-            if (dormantRadioVal === "yes") {
-              turnover.disabled = true;
+            turnover.disabled = true;
 
-              vatRegisteredRadios.forEach((radio) => {
-                radio.disabled = true;
-              });
+            vatRegisteredRadios.forEach((radio) => {
+              radio.disabled = true;
+            });
 
-              pensionRadios.forEach((radio) => {
-                radio.disabled = true;
-              });
+            pensionRadios.forEach((radio) => {
+              radio.disabled = true;
+            });
 
-              payrollRadios.forEach((radio) => {
-                radio.disabled = true;
-              });
-            } else {
-              turnover.disabled = false;
-              vatRegisteredRadios.forEach((radio) => {
-                radio.disabled = false;
-              });
-
-              pensionRadios.forEach((radio) => {
-                radio.disabled = false;
-              });
-
-              payrollRadios.forEach((radio) => {
-                radio.disabled = false;
-              });
-            }
+            payrollRadios.forEach((radio) => {
+              radio.disabled = true;
+            });
           });
         });
       } else {
@@ -239,9 +299,9 @@ document.addEventListener("DOMContentLoaded", function () {
       payrollVal = this.value;
       if (this.value === "yes") {
         payslipPayrollBlock.classList.remove("hide");
-        PayrollPayslipVal = payslipPayrollBlock.querySelector(
+        payrollPayslipVal = payslipPayrollBlock.querySelector(
           "input[name='payslip_payroll']"
-        );
+        ).value;
       } else {
         payslipPayrollBlock.classList.add("hide");
       }
@@ -256,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
         payslipPensionBlock.classList.remove("hide");
         pensionPayslipVal = payslipPensionBlock.querySelector(
           "input[name='paysli_pension']"
-        );
+        ).value;
       } else {
         payslipPensionBlock.classList.add("hide");
       }
@@ -284,131 +344,174 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* =========== Step 3 == */
+  function updateOrderReview() {
+    const additionalRows = [];
 
-  const additionalRows = [];
+    if (businessTypeVal) {
+      additionalRows.push({
+        label: "Type Of Business",
+        value: businessTypeVal,
+        charged: 0,
+      });
+    }
 
-  if (businessTypeVal) {
-    additionalRows.push({
-      label: "Type Of Business",
-      value: businessTypeVal,
-    });
-  }
+    if (freeFormationval) {
+      additionalRows.push({
+        label: "Free Formation",
+        value: freeFormationval,
+        charged: 0,
+      });
+    }
 
-  if (freeFormationval) {
-    additionalRows.push({
-      label: "Free Formation",
-      value: freeFormationval,
-    });
-  }
+    if (dormantRadioVal) {
+      additionalRows.push({
+        label: "Dormanat",
+        value: dormantRadioVal,
+        charged: total.dormant,
+      });
+    }
 
-  if (dormantRadioVal) {
-    additionalRows.push({
-      label: "Dormanat",
-      value: dormantRadioVal,
-    });
-  }
+    if (selfAssessmentsVal) {
+      additionalRows.push({
+        label: "Self Assessment",
+        value: selfAssessmentsVal,
+        charged: total.self_assessments,
+      });
+    }
 
-  if (selfAssessmentsVal) {
-    additionalRows.push({
-      label: "Self Assessment",
-      value: selfAssessmentsVal,
-    });
-  }
+    if (turnoverVal) {
+      additionalRows.push({
+        label: "Turnover",
+        value: turnoverVal,
+        charged: total.turnover,
+      });
+    }
 
-  if (turnoverVal) {
-    additionalRows.push({
-      label: "Turnover",
-      value: turnoverVal,
-    });
-  }
+    if (vatRegisteredVal) {
+      additionalRows.push({
+        label: "VAT Registered",
+        value: vatRegisteredVal,
+        charged: total.vat_registered,
+      });
+    }
 
-  if (vatRegisteredVal) {
-    additionalRows.push({
-      label: "VAT Registered",
-      value: vatRegisteredVal,
-    });
-  }
+    if (payrollVal) {
+      additionalRows.push({
+        label: "Payroll",
+        value: payrollVal,
+        charged: total.payroll,
+      });
+    }
 
-  if (payrollVal) {
-    additionalRows.push({
-      label: "Payroll",
-      value: payrollVal,
-    });
-  }
+    if (payrollPayslipVal) {
+      additionalRows.push({
+        label: "Payroll Payslip",
+        value: payrollPayslipVal,
+        charged: 0,
+      });
+    }
 
-  if (payrollPayslipVal) {
-    additionalRows.push({
-      label: "Payroll Payslip",
-      value: payrollPayslipVal,
-    });
-  }
+    if (pensionVal) {
+      additionalRows.push({
+        label: "Pension Scheme",
+        value: pensionVal,
+        charged: total.pension_scheme,
+      });
+    }
 
-  if (pensionVal) {
-    additionalRows.push({
-      label: "Pension Scheme",
-      value: pensionVal,
-    });
-  }
+    if (pensionPayslipVal) {
+      additionalRows.push({
+        label: "Pension Payslip",
+        value: pensionPayslipVal,
+        charged: 0,
+      });
+    }
 
-  if (pensionPayslipVal) {
-    additionalRows.push({
-      label: "Pension Payslip",
-      value: pensionPayslipVal,
-    });
-  }
+    if (mailForwardVal) {
+      additionalRows.push({
+        label: "Registered office and mail forwarding",
+        value: mailForwardVal,
+        charged: total.mail_forward,
+      });
+    }
 
-  if (mailForwardVal) {
-    additionalRows.push({
-      label: "Registered office and mail forwarding",
-      value: mailForwardVal,
-    });
-  }
+    if (statementFilingVal) {
+      additionalRows.push({
+        label: "Statement filing service",
+        value: statementFilingVal,
+        charged: total.statement_filing_service,
+      });
+    }
 
-  if (statementFilingVal) {
-    additionalRows.push({
-      label: "Statement filing service",
-      value: statementFilingVal,
-    });
-  }
+    if (secretarialServiceVal) {
+      additionalRows.push({
+        label: "Secretarial service",
+        value: secretarialServiceVal,
+        chareged: total.sService,
+      });
+    }
 
-  if (secretarialServiceVal) {
-    additionalRows.push({
-      label: "Secretarial service",
-      value: secretarialServiceVal,
-    });
-  }
-
-  if (additionalChargesTbody && orderReviewTbody) {
-    additionalChargesTbody.innerHTML = `
-    <tr><td></td><td class="text-left">Price excl. VAT</td><td>£39.99</td></tr>
+    if (additionalChargesTbody && orderReviewTbody) {
+      additionalChargesTbody.innerHTML = `
+    <tr>
+    <td width="10%"></td>
+    <td width="45%" class="text-left txt-cap fw-500">Price excl. VAT</td>
+    <td width="45%" class="text-left txt-cap">£${total.base}</td>
+    </tr>
     ${additionalRows
       .map(
         (row) =>
-          `<tr><td></td><td class="text-left">${row.label}</td><td>£${row.value}</td></tr>`
+          `<tr>
+       <td width="10%"></td>
+        <td width="45%" class="text-left txt-cap fw-500">${row.label}</td>
+        <td width="45%" class="text-left txt-cap">${row.charged}</td>
+        </tr>`
       )
       .join("")}
     <tr>
-      <td></td>
-      <td><h5 class="text-left mb-0">Total Charges</h5></td>
-      <td><h5 class="mb-0">£${totalPayment}</h5></td>
+      
+    <td width="10%"></td>
+      <td width="45%"><h5 class="text-left txt-cap fw-500 mb-0">Total Charges</h5></td>
+      <td width="45%"><h5 class="text-left txt-cap mb-0">£${viewPayement}</h5></td>
     </tr>
   `;
-    orderReviewTbody.innerHTML = `
-      <tr><td></td><td class="text-left">Full Name</td><td>${getInputValue(
+      orderReviewTbody.innerHTML = `
+      <tr>
+     <td width="10%"></td>
+      <td width="45%" class="text-left txt-cap fw-500">Full Name</td>
+      <td width="45%" class="text-left txt-cap">${getInputValue(
         'input[name="fullname"]'
-      )}</td></tr>
-      <tr><td></td><td class="text-left">Email Address</td><td>${getInputValue(
+      )}</td>
+      </tr>
+      <tr>
+     <td width="10%"></td>
+      <td width="45%" class="text-left txt-cap fw-500">Email Address</td>
+      <td width="45%" class="text-left txt-cap">${getInputValue(
         'input[name="email"]'
-      )}</td></tr>
-      <tr><td></td><td class="text-left">Phone Number</td><td>${getInputValue(
+      )}</td>
+      </tr>
+      <tr>
+     <td width="10%"></td>
+      <td width="45%" class="text-left txt-cap fw-500">Phone Number</td>
+      <td width="45%" class="text-left txt-cap">${getInputValue(
         'input[name="countryCode"]'
-      )}-${getInputValue('input[name="phone"]')}</td></tr>
+      )}-${getInputValue('input[name="phone"]')}</td>
+      </tr>
       ${additionalRows
         .map(
           (row) =>
-            `<tr><td></td><td class="text-left">${row.label}</td><td>${row.value}</td></tr>`
+            `<tr>
+         <td width="10%"></td>
+          <td width="45%" class="text-left txt-cap fw-500">${row.label}</td>
+          <td width="45%" class="text-left txt-cap">${row.value}</td>
+          </tr>`
         )
         .join("")}
     `;
+    }
   }
+
+  document.querySelectorAll("input, select").forEach((input) => {
+    input.addEventListener("change", updateOrderReview);
+  });
 });

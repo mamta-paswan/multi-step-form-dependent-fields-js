@@ -268,7 +268,7 @@
             method="post">
 
             <div id="stepOne">
-              <div class="row">
+              <div class="row border-bottom pb-25">
                 <div class="col-lg-12">
                   <div class="formStep-container">
                     <div class="step active" id="step1-indicator">
@@ -279,7 +279,7 @@
                         </path>
                       </svg>
                     </div>
-                    <div class="step" id="step2-indicator">
+                    <div class="step hide" id="step2-indicator">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M14.962 13.41q-1.391.09-2.962.09t-2.962-.09c.267 4.954 1.884 8.74 2.962 8.74s2.694-3.785 2.962-8.74m-7.936-.188c.152 3.571.961 6.533 2.06 8.442C4.983 20.404 2 16.554 2 12v-.09q1.992.93 5.026 1.312m-4.784-3.44c1.127.662 2.719 1.14 4.769 1.42.103-3.76.933-6.882 2.074-8.866C5.67 3.386 3.03 6.23 2.242 9.782m6.765 1.622C9.129 6.057 10.864 1.85 12 1.85s2.871 4.207 2.993 9.554A44 44 0 0 1 12 11.5a44 44 0 0 1-2.993-.096m7.967 1.818c2.023-.256 3.697-.69 5.026-1.311V12c0 4.554-2.984 8.404-7.085 9.664 1.098-1.91 1.907-4.871 2.06-8.442zm4.784-3.44c-1.127.662-2.719 1.14-4.769 1.42-.103-3.76-.933-6.882-2.074-8.866 3.415 1.05 6.055 3.894 6.843 7.446"
@@ -298,254 +298,246 @@
                 </div>
               </div>
 
-              <div class="d-flex flex-column row-gap-25 mt-20">
-                <p class="mb-0 text-left">Please complete our online application form and make your payment by
-                  credit or debit card. You will receive a receipt of payment confirmation email, and then within
-                  3 to 5 working days you will receive a confirmation of order fulfilled (when your dormant
-                  company accounts are successfully filed at Companies House).
-                </p>
-
-                <p class="mb-0 text-left border-bottom pb-25">Fields marked with an asterisk (*) are required.</p>
-              </div>
+              <p class="mb-0 text-center mt-20">Fields marked with an asterisk (*) are required.</p>
 
               <div class="d-flex flex-column">
 
-                <div class="step-form d-flex flex-column mt-20 border-bottom pb-25">
-                  <h5 class="text-left">Company Information</h5>
-                  <p class="text-left">Please provide the name and registration number of the limited
-                    company you wish dormant company accounts filed at Companies House:</p>
+                <div class="step-form align-items-center d-flex flex-column mt-20 border-bottom pb-25">
 
-                  <div class="row contact-p text-left mt-20 row-gap-25">
+                  <div class="row align-items-center contact-p text-left mt-20 row-gap-25">
                     <div class="col-lg-4">
                       <label for="fullname">Full Name*</label>
-                      <input type="text" placeholder="Full Name" name="fullname" required="">
+                      <input type="text" id="fullname" placeholder="Full Name" name="fullname" required="">
+                      <span class="error-message"></span>
                     </div>
                     <div class="col-lg-4">
                       <label for="email">Email Address*</label>
-                      <input type="Email" placeholder="Email Address" name="email" required="">
+                      <input type="email" id="email" placeholder="Email Address" name="email" required="">
+                      <span class="error-message"></span>
                     </div>
                     <div class="col-lg-4">
-                      <label class="phone">Phone Number*</label>
+                      <label for="phone">Phone Number*</label>
                       <div class="phone-group d-flex">
-                        <select name="countryCode">
-                          <option data-countryCode="GB" value="44" Selected>Norway (+47)</option>
-                          <option data-countryCode="US" value="1">UK (+44)</option>
-                          <option data-countryCode="DZ" value="213">Algeria (+213)</option>
-                          <option data-countryCode="AD" value="376">Andorra (+376)</option>
-                          <option data-countryCode="AO" value="244">Angola (+244)</option>
-                          <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
-                          <option data-countryCode="AG" value="1268">Antigua &amp; Barbuda (+1268)</option>
-                          <option data-countryCode="AR" value="54">Argentina (+54)</option>
-                          <option data-countryCode="AM" value="374">Armenia (+374)</option>
-                          <option data-countryCode="AW" value="297">Aruba (+297)</option>
-                          <option data-countryCode="AU" value="61">Australia (+61)</option>
-                          <option data-countryCode="AT" value="43">Austria (+43)</option>
-                          <option data-countryCode="AZ" value="994">Azerbaijan (+994)</option>
-                          <option data-countryCode="BS" value="1242">Bahamas (+1242)</option>
-                          <option data-countryCode="BH" value="973">Bahrain (+973)</option>
-                          <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
-                          <option data-countryCode="BB" value="1246">Barbados (+1246)</option>
-                          <option data-countryCode="BY" value="375">Belarus (+375)</option>
-                          <option data-countryCode="BE" value="32">Belgium (+32)</option>
-                          <option data-countryCode="BZ" value="501">Belize (+501)</option>
-                          <option data-countryCode="BJ" value="229">Benin (+229)</option>
-                          <option data-countryCode="BM" value="1441">Bermuda (+1441)</option>
-                          <option data-countryCode="BT" value="975">Bhutan (+975)</option>
-                          <option data-countryCode="BO" value="591">Bolivia (+591)</option>
-                          <option data-countryCode="BA" value="387">Bosnia Herzegovina (+387)</option>
-                          <option data-countryCode="BW" value="267">Botswana (+267)</option>
-                          <option data-countryCode="BR" value="55">Brazil (+55)</option>
-                          <option data-countryCode="BN" value="673">Brunei (+673)</option>
-                          <option data-countryCode="BG" value="359">Bulgaria (+359)</option>
-                          <option data-countryCode="BF" value="226">Burkina Faso (+226)</option>
-                          <option data-countryCode="BI" value="257">Burundi (+257)</option>
-                          <option data-countryCode="KH" value="855">Cambodia (+855)</option>
-                          <option data-countryCode="CM" value="237">Cameroon (+237)</option>
-                          <option data-countryCode="CA" value="1">Canada (+1)</option>
-                          <option data-countryCode="CV" value="238">Cape Verde Islands (+238)</option>
-                          <option data-countryCode="KY" value="1345">Cayman Islands (+1345)</option>
-                          <option data-countryCode="CF" value="236">Central African Republic (+236)</option>
-                          <option data-countryCode="CL" value="56">Chile (+56)</option>
-                          <option data-countryCode="CN" value="86">China (+86)</option>
-                          <option data-countryCode="CO" value="57">Colombia (+57)</option>
-                          <option data-countryCode="KM" value="269">Comoros (+269)</option>
-                          <option data-countryCode="CG" value="242">Congo (+242)</option>
-                          <option data-countryCode="CK" value="682">Cook Islands (+682)</option>
-                          <option data-countryCode="CR" value="506">Costa Rica (+506)</option>
-                          <option data-countryCode="HR" value="385">Croatia (+385)</option>
-                          <option data-countryCode="CU" value="53">Cuba (+53)</option>
-                          <option data-countryCode="CY" value="90392">Cyprus North (+90392)</option>
-                          <option data-countryCode="CY" value="357">Cyprus South (+357)</option>
-                          <option data-countryCode="CZ" value="42">Czech Republic (+42)</option>
-                          <option data-countryCode="DK" value="45">Denmark (+45)</option>
-                          <option data-countryCode="DJ" value="253">Djibouti (+253)</option>
-                          <option data-countryCode="DM" value="1809">Dominica (+1809)</option>
-                          <option data-countryCode="DO" value="1809">Dominican Republic (+1809)</option>
-                          <option data-countryCode="EC" value="593">Ecuador (+593)</option>
-                          <option data-countryCode="EG" value="20">Egypt (+20)</option>
-                          <option data-countryCode="SV" value="503">El Salvador (+503)</option>
-                          <option data-countryCode="GQ" value="240">Equatorial Guinea (+240)</option>
-                          <option data-countryCode="ER" value="291">Eritrea (+291)</option>
-                          <option data-countryCode="EE" value="372">Estonia (+372)</option>
-                          <option data-countryCode="ET" value="251">Ethiopia (+251)</option>
-                          <option data-countryCode="FK" value="500">Falkland Islands (+500)</option>
-                          <option data-countryCode="FO" value="298">Faroe Islands (+298)</option>
-                          <option data-countryCode="FJ" value="679">Fiji (+679)</option>
-                          <option data-countryCode="FI" value="358">Finland (+358)</option>
-                          <option data-countryCode="FR" value="33">France (+33)</option>
-                          <option data-countryCode="GF" value="594">French Guiana (+594)</option>
-                          <option data-countryCode="PF" value="689">French Polynesia (+689)</option>
-                          <option data-countryCode="GA" value="241">Gabon (+241)</option>
-                          <option data-countryCode="GM" value="220">Gambia (+220)</option>
-                          <option data-countryCode="GE" value="7880">Georgia (+7880)</option>
-                          <option data-countryCode="DE" value="49">Germany (+49)</option>
-                          <option data-countryCode="GH" value="233">Ghana (+233)</option>
-                          <option data-countryCode="GI" value="350">Gibraltar (+350)</option>
-                          <option data-countryCode="GR" value="30">Greece (+30)</option>
-                          <option data-countryCode="GL" value="299">Greenland (+299)</option>
-                          <option data-countryCode="GD" value="1473">Grenada (+1473)</option>
-                          <option data-countryCode="GP" value="590">Guadeloupe (+590)</option>
-                          <option data-countryCode="GU" value="671">Guam (+671)</option>
-                          <option data-countryCode="GT" value="502">Guatemala (+502)</option>
-                          <option data-countryCode="GN" value="224">Guinea (+224)</option>
-                          <option data-countryCode="GW" value="245">Guinea - Bissau (+245)</option>
-                          <option data-countryCode="GY" value="592">Guyana (+592)</option>
-                          <option data-countryCode="HT" value="509">Haiti (+509)</option>
-                          <option data-countryCode="HN" value="504">Honduras (+504)</option>
-                          <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
-                          <option data-countryCode="HU" value="36">Hungary (+36)</option>
-                          <option data-countryCode="IS" value="354">Iceland (+354)</option>
-                          <option data-countryCode="IN" value="91">India (+91)</option>
-                          <option data-countryCode="ID" value="62">Indonesia (+62)</option>
-                          <option data-countryCode="IR" value="98">Iran (+98)</option>
-                          <option data-countryCode="IQ" value="964">Iraq (+964)</option>
-                          <option data-countryCode="IE" value="353">Ireland (+353)</option>
-                          <option data-countryCode="IL" value="972">Israel (+972)</option>
-                          <option data-countryCode="IT" value="39">Italy (+39)</option>
-                          <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
-                          <option data-countryCode="JP" value="81">Japan (+81)</option>
-                          <option data-countryCode="JO" value="962">Jordan (+962)</option>
-                          <option data-countryCode="KZ" value="7">Kazakhstan (+7)</option>
-                          <option data-countryCode="KE" value="254">Kenya (+254)</option>
-                          <option data-countryCode="KI" value="686">Kiribati (+686)</option>
-                          <option data-countryCode="KP" value="850">Korea North (+850)</option>
-                          <option data-countryCode="KR" value="82">Korea South (+82)</option>
-                          <option data-countryCode="KW" value="965">Kuwait (+965)</option>
-                          <option data-countryCode="KG" value="996">Kyrgyzstan (+996)</option>
-                          <option data-countryCode="LA" value="856">Laos (+856)</option>
-                          <option data-countryCode="LV" value="371">Latvia (+371)</option>
-                          <option data-countryCode="LB" value="961">Lebanon (+961)</option>
-                          <option data-countryCode="LS" value="266">Lesotho (+266)</option>
-                          <option data-countryCode="LR" value="231">Liberia (+231)</option>
-                          <option data-countryCode="LY" value="218">Libya (+218)</option>
-                          <option data-countryCode="LI" value="417">Liechtenstein (+417)</option>
-                          <option data-countryCode="LT" value="370">Lithuania (+370)</option>
-                          <option data-countryCode="LU" value="352">Luxembourg (+352)</option>
-                          <option data-countryCode="MO" value="853">Macao (+853)</option>
-                          <option data-countryCode="MK" value="389">Macedonia (+389)</option>
-                          <option data-countryCode="MG" value="261">Madagascar (+261)</option>
-                          <option data-countryCode="MW" value="265">Malawi (+265)</option>
-                          <option data-countryCode="MY" value="60">Malaysia (+60)</option>
-                          <option data-countryCode="MV" value="960">Maldives (+960)</option>
-                          <option data-countryCode="ML" value="223">Mali (+223)</option>
-                          <option data-countryCode="MT" value="356">Malta (+356)</option>
-                          <option data-countryCode="MH" value="692">Marshall Islands (+692)</option>
-                          <option data-countryCode="MQ" value="596">Martinique (+596)</option>
-                          <option data-countryCode="MR" value="222">Mauritania (+222)</option>
-                          <option data-countryCode="YT" value="269">Mayotte (+269)</option>
-                          <option data-countryCode="MX" value="52">Mexico (+52)</option>
-                          <option data-countryCode="FM" value="691">Micronesia (+691)</option>
-                          <option data-countryCode="MD" value="373">Moldova (+373)</option>
-                          <option data-countryCode="MC" value="377">Monaco (+377)</option>
-                          <option data-countryCode="MN" value="976">Mongolia (+976)</option>
-                          <option data-countryCode="MS" value="1664">Montserrat (+1664)</option>
-                          <option data-countryCode="MA" value="212">Morocco (+212)</option>
-                          <option data-countryCode="MZ" value="258">Mozambique (+258)</option>
-                          <option data-countryCode="MN" value="95">Myanmar (+95)</option>
-                          <option data-countryCode="NA" value="264">Namibia (+264)</option>
-                          <option data-countryCode="NR" value="674">Nauru (+674)</option>
-                          <option data-countryCode="NP" value="977">Nepal (+977)</option>
-                          <option data-countryCode="NL" value="31">Netherlands (+31)</option>
-                          <option data-countryCode="NC" value="687">New Caledonia (+687)</option>
-                          <option data-countryCode="NZ" value="64">New Zealand (+64)</option>
-                          <option data-countryCode="NI" value="505">Nicaragua (+505)</option>
-                          <option data-countryCode="NE" value="227">Niger (+227)</option>
-                          <option data-countryCode="NG" value="234">Nigeria (+234)</option>
-                          <option data-countryCode="NU" value="683">Niue (+683)</option>
-                          <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option>
-                          <option data-countryCode="NP" value="670">Northern Marianas (+670)</option>
-                          <option data-countryCode="NO" value="47">Norway (+47)</option>
-                          <option data-countryCode="OM" value="968">Oman (+968)</option>
-                          <option data-countryCode="PW" value="680">Palau (+680)</option>
-                          <option data-countryCode="PA" value="507">Panama (+507)</option>
-                          <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option>
-                          <option data-countryCode="PY" value="595">Paraguay (+595)</option>
-                          <option data-countryCode="PE" value="51">Peru (+51)</option>
-                          <option data-countryCode="PH" value="63">Philippines (+63)</option>
-                          <option data-countryCode="PL" value="48">Poland (+48)</option>
-                          <option data-countryCode="PT" value="351">Portugal (+351)</option>
-                          <option data-countryCode="PR" value="1787">Puerto Rico (+1787)</option>
-                          <option data-countryCode="QA" value="974">Qatar (+974)</option>
-                          <option data-countryCode="RE" value="262">Reunion (+262)</option>
-                          <option data-countryCode="RO" value="40">Romania (+40)</option>
-                          <option data-countryCode="RU" value="7">Russia (+7)</option>
-                          <option data-countryCode="RW" value="250">Rwanda (+250)</option>
-                          <option data-countryCode="SM" value="378">San Marino (+378)</option>
-                          <option data-countryCode="ST" value="239">Sao Tome &amp; Principe (+239)</option>
-                          <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
-                          <option data-countryCode="SN" value="221">Senegal (+221)</option>
-                          <option data-countryCode="CS" value="381">Serbia (+381)</option>
-                          <option data-countryCode="SC" value="248">Seychelles (+248)</option>
-                          <option data-countryCode="SL" value="232">Sierra Leone (+232)</option>
-                          <option data-countryCode="SG" value="65">Singapore (+65)</option>
-                          <option data-countryCode="SK" value="421">Slovak Republic (+421)</option>
-                          <option data-countryCode="SI" value="386">Slovenia (+386)</option>
-                          <option data-countryCode="SB" value="677">Solomon Islands (+677)</option>
-                          <option data-countryCode="SO" value="252">Somalia (+252)</option>
-                          <option data-countryCode="ZA" value="27">South Africa (+27)</option>
-                          <option data-countryCode="ES" value="34">Spain (+34)</option>
-                          <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
-                          <option data-countryCode="SH" value="290">St. Helena (+290)</option>
-                          <option data-countryCode="KN" value="1869">St. Kitts (+1869)</option>
-                          <option data-countryCode="SC" value="1758">St. Lucia (+1758)</option>
-                          <option data-countryCode="SD" value="249">Sudan (+249)</option>
-                          <option data-countryCode="SR" value="597">Suriname (+597)</option>
-                          <option data-countryCode="SZ" value="268">Swaziland (+268)</option>
-                          <option data-countryCode="SE" value="46">Sweden (+46)</option>
-                          <option data-countryCode="CH" value="41">Switzerland (+41)</option>
-                          <option data-countryCode="SI" value="963">Syria (+963)</option>
-                          <option data-countryCode="TW" value="886">Taiwan (+886)</option>
-                          <option data-countryCode="TJ" value="7">Tajikstan (+7)</option>
-                          <option data-countryCode="TH" value="66">Thailand (+66)</option>
-                          <option data-countryCode="TG" value="228">Togo (+228)</option>
-                          <option data-countryCode="TO" value="676">Tonga (+676)</option>
-                          <option data-countryCode="TT" value="1868">Trinidad &amp; Tobago (+1868)</option>
-                          <option data-countryCode="TN" value="216">Tunisia (+216)</option>
-                          <option data-countryCode="TR" value="90">Turkey (+90)</option>
-                          <option data-countryCode="TM" value="7">Turkmenistan (+7)</option>
-                          <option data-countryCode="TM" value="993">Turkmenistan (+993)</option>
-                          <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option>
-                          <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
-                          <option data-countryCode="UG" value="256">Uganda (+256)</option>
-                          <option data-countryCode="GB" value="44">UK (+44)</option>
-                          <option data-countryCode="UA" value="380">Ukraine (+380)</option>
-                          <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
-                          <option data-countryCode="UY" value="598">Uruguay (+598)</option>
-                          <option data-countryCode="US" value="1">USA (+1)</option>
-                          <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
-                          <option data-countryCode="VU" value="678">Vanuatu (+678)</option>
-                          <option data-countryCode="VA" value="379">Vatican City (+379)</option>
-                          <option data-countryCode="VE" value="58">Venezuela (+58)</option>
-                          <option data-countryCode="VN" value="84">Vietnam (+84)</option>
-                          <option data-countryCode="VG" value="84">Virgin Islands - British (+1284)</option>
-                          <option data-countryCode="VI" value="84">Virgin Islands - US (+1340)</option>
-                          <option data-countryCode="WF" value="681">Wallis &amp; Futuna (+681)</option>
-                          <option data-countryCode="YE" value="969">Yemen (North)(+969)</option>
-                          <option data-countryCode="YE" value="967">Yemen (South)(+967)</option>
-                          <option data-countryCode="ZM" value="260">Zambia (+260)</option>
-                          <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
+                        <select name="countrycode">
+                          <option data-countryCode="GB" value="44" Selected>+47</option>
+                          <option data-countryCode="US" value="1">+44</option>
+                          <option data-countryCode="DZ" value="213">+213</option>
+                          <option data-countryCode="AD" value="376">+376</option>
+                          <option data-countryCode="AO" value="244">+244</option>
+                          <option data-countryCode="AI" value="1264">+1264</option>
+                          <option data-countryCode="AG" value="1268">+1268</option>
+                          <option data-countryCode="AR" value="54">+54</option>
+                          <option data-countryCode="AM" value="374">+374</option>
+                          <option data-countryCode="AW" value="297">+297</option>
+                          <option data-countryCode="AU" value="61">+61</option>
+                          <option data-countryCode="AT" value="43">+43</option>
+                          <option data-countryCode="AZ" value="994">+994</option>
+                          <option data-countryCode="BS" value="1242">+1242</option>
+                          <option data-countryCode="BH" value="973">+973</option>
+                          <option data-countryCode="BD" value="880">+880</option>
+                          <option data-countryCode="BB" value="1246">+1246</option>
+                          <option data-countryCode="BY" value="375">+375</option>
+                          <option data-countryCode="BE" value="32">+32</option>
+                          <option data-countryCode="BZ" value="501">+501</option>
+                          <option data-countryCode="BJ" value="229">+229</option>
+                          <option data-countryCode="BM" value="1441">+1441</option>
+                          <option data-countryCode="BT" value="975">+975</option>
+                          <option data-countryCode="BO" value="591">+591</option>
+                          <option data-countryCode="BA" value="387">+387</option>
+                          <option data-countryCode="BW" value="267">+267</option>
+                          <option data-countryCode="BR" value="55">+55</option>
+                          <option data-countryCode="BN" value="673">+673</option>
+                          <option data-countryCode="BG" value="359">+359</option>
+                          <option data-countryCode="BF" value="226">+226</option>
+                          <option data-countryCode="BI" value="257">+257</option>
+                          <option data-countryCode="KH" value="855">+855</option>
+                          <option data-countryCode="CM" value="237">+237</option>
+                          <option data-countryCode="CA" value="1">+1</option>
+                          <option data-countryCode="CV" value="238">+238</option>
+                          <option data-countryCode="KY" value="1345">+1345</option>
+                          <option data-countryCode="CF" value="236">+236</option>
+                          <option data-countryCode="CL" value="56">+56</option>
+                          <option data-countryCode="CN" value="86">+86</option>
+                          <option data-countryCode="CO" value="57">+57</option>
+                          <option data-countryCode="KM" value="269">+269</option>
+                          <option data-countryCode="CG" value="242">+242</option>
+                          <option data-countryCode="CK" value="682">+682</option>
+                          <option data-countryCode="CR" value="506">+506</option>
+                          <option data-countryCode="HR" value="385">+385</option>
+                          <option data-countryCode="CU" value="53">+53</option>
+                          <option data-countryCode="CY" value="90392">+90392</option>
+                          <option data-countryCode="CY" value="357">+357</option>
+                          <option data-countryCode="CZ" value="42">+42</option>
+                          <option data-countryCode="DK" value="45">+45</option>
+                          <option data-countryCode="DJ" value="253">+253</option>
+                          <option data-countryCode="DM" value="1809">+1809</option>
+                          <option data-countryCode="DO" value="1809">+1809</option>
+                          <option data-countryCode="EC" value="593">+593</option>
+                          <option data-countryCode="EG" value="20">+20</option>
+                          <option data-countryCode="SV" value="503">+503</option>
+                          <option data-countryCode="GQ" value="240">+240</option>
+                          <option data-countryCode="ER" value="291">+291</option>
+                          <option data-countryCode="EE" value="372">+372</option>
+                          <option data-countryCode="ET" value="251">+251</option>
+                          <option data-countryCode="FK" value="500">+500</option>
+                          <option data-countryCode="FO" value="298">+298</option>
+                          <option data-countryCode="FJ" value="679">+679</option>
+                          <option data-countryCode="FI" value="358">+358</option>
+                          <option data-countryCode="FR" value="33">+33</option>
+                          <option data-countryCode="GF" value="594">+594</option>
+                          <option data-countryCode="PF" value="689">+689</option>
+                          <option data-countryCode="GA" value="241">+241</option>
+                          <option data-countryCode="GM" value="220">+220</option>
+                          <option data-countryCode="GE" value="7880">+7880</option>
+                          <option data-countryCode="DE" value="49">+49</option>
+                          <option data-countryCode="GH" value="233">+233</option>
+                          <option data-countryCode="GI" value="350">+350</option>
+                          <option data-countryCode="GR" value="30">+30</option>
+                          <option data-countryCode="GL" value="299">+299</option>
+                          <option data-countryCode="GD" value="1473">+1473</option>
+                          <option data-countryCode="GP" value="590">+590</option>
+                          <option data-countryCode="GU" value="671">+671</option>
+                          <option data-countryCode="GT" value="502">+502</option>
+                          <option data-countryCode="GN" value="224">+224</option>
+                          <option data-countryCode="GW" value="245">+245</option>
+                          <option data-countryCode="GY" value="592">+592</option>
+                          <option data-countryCode="HT" value="509">+509</option>
+                          <option data-countryCode="HN" value="504">+504</option>
+                          <option data-countryCode="HK" value="852">+852</option>
+                          <option data-countryCode="HU" value="36">+36</option>
+                          <option data-countryCode="IS" value="354">+354</option>
+                          <option data-countryCode="IN" value="91">+91</option>
+                          <option data-countryCode="ID" value="62">+62</option>
+                          <option data-countryCode="IR" value="98">+98</option>
+                          <option data-countryCode="IQ" value="964">+964</option>
+                          <option data-countryCode="IE" value="353">+353</option>
+                          <option data-countryCode="IL" value="972">+972</option>
+                          <option data-countryCode="IT" value="39">+39</option>
+                          <option data-countryCode="JM" value="1876">+1876</option>
+                          <option data-countryCode="JP" value="81">+81</option>
+                          <option data-countryCode="JO" value="962">+962</option>
+                          <option data-countryCode="KZ" value="7">+7</option>
+                          <option data-countryCode="KE" value="254">+254</option>
+                          <option data-countryCode="KI" value="686">+686</option>
+                          <option data-countryCode="KP" value="850">+850</option>
+                          <option data-countryCode="KR" value="82">+82</option>
+                          <option data-countryCode="KW" value="965">+965</option>
+                          <option data-countryCode="KG" value="996">+996</option>
+                          <option data-countryCode="LA" value="856">+856</option>
+                          <option data-countryCode="LV" value="371">+371</option>
+                          <option data-countryCode="LB" value="961">+961</option>
+                          <option data-countryCode="LS" value="266">+266</option>
+                          <option data-countryCode="LR" value="231">+231</option>
+                          <option data-countryCode="LY" value="218">+218</option>
+                          <option data-countryCode="LI" value="417">+417</option>
+                          <option data-countryCode="LT" value="370">+370</option>
+                          <option data-countryCode="LU" value="352">+352</option>
+                          <option data-countryCode="MO" value="853">+853</option>
+                          <option data-countryCode="MK" value="389">+389</option>
+                          <option data-countryCode="MG" value="261">+261</option>
+                          <option data-countryCode="MW" value="265">+265</option>
+                          <option data-countryCode="MY" value="60">+60</option>
+                          <option data-countryCode="MV" value="960">+960</option>
+                          <option data-countryCode="ML" value="223">+223</option>
+                          <option data-countryCode="MT" value="356">+356</option>
+                          <option data-countryCode="MH" value="692">+692</option>
+                          <option data-countryCode="MQ" value="596">+596</option>
+                          <option data-countryCode="MR" value="222">+222</option>
+                          <option data-countryCode="YT" value="269">+269</option>
+                          <option data-countryCode="MX" value="52">+52</option>
+                          <option data-countryCode="FM" value="691">+691</option>
+                          <option data-countryCode="MD" value="373">+373</option>
+                          <option data-countryCode="MC" value="377">+377</option>
+                          <option data-countryCode="MN" value="976">+976</option>
+                          <option data-countryCode="MS" value="1664">+1664</option>
+                          <option data-countryCode="MA" value="212">+212</option>
+                          <option data-countryCode="MZ" value="258">+258</option>
+                          <option data-countryCode="MN" value="95">+95</option>
+                          <option data-countryCode="NA" value="264">+264</option>
+                          <option data-countryCode="NR" value="674">+674</option>
+                          <option data-countryCode="NP" value="977">+977</option>
+                          <option data-countryCode="NL" value="31">+31</option>
+                          <option data-countryCode="NC" value="687">+687</option>
+                          <option data-countryCode="NZ" value="64">+64</option>
+                          <option data-countryCode="NI" value="505">+505</option>
+                          <option data-countryCode="NE" value="227">+227</option>
+                          <option data-countryCode="NG" value="234">+234</option>
+                          <option data-countryCode="NU" value="683">+683</option>
+                          <option data-countryCode="NF" value="672">+672</option>
+                          <option data-countryCode="NP" value="670">+670</option>
+                          <option data-countryCode="NO" value="47">+47</option>
+                          <option data-countryCode="OM" value="968">+968</option>
+                          <option data-countryCode="PW" value="680">+680</option>
+                          <option data-countryCode="PA" value="507">+507</option>
+                          <option data-countryCode="PG" value="675">+675</option>
+                          <option data-countryCode="PY" value="595">+595</option>
+                          <option data-countryCode="PE" value="51">+51</option>
+                          <option data-countryCode="PH" value="63">+63</option>
+                          <option data-countryCode="PL" value="48">+48</option>
+                          <option data-countryCode="PT" value="351">+351</option>
+                          <option data-countryCode="PR" value="1787">+1787</option>
+                          <option data-countryCode="QA" value="974">+974</option>
+                          <option data-countryCode="RE" value="262">+262</option>
+                          <option data-countryCode="RO" value="40">+40</option>
+                          <option data-countryCode="RU" value="7">+7</option>
+                          <option data-countryCode="RW" value="250">+250</option>
+                          <option data-countryCode="SM" value="378">+378</option>
+                          <option data-countryCode="ST" value="239">+239</option>
+                          <option data-countryCode="SA" value="966">+966</option>
+                          <option data-countryCode="SN" value="221">+221</option>
+                          <option data-countryCode="CS" value="381">+381</option>
+                          <option data-countryCode="SC" value="248">+248</option>
+                          <option data-countryCode="SL" value="232">+232</option>
+                          <option data-countryCode="SG" value="65">+65</option>
+                          <option data-countryCode="SK" value="421">+421</option>
+                          <option data-countryCode="SI" value="386">+386</option>
+                          <option data-countryCode="SB" value="677">+677</option>
+                          <option data-countryCode="SO" value="252">+252</option>
+                          <option data-countryCode="ZA" value="27">+27</option>
+                          <option data-countryCode="ES" value="34">+34</option>
+                          <option data-countryCode="LK" value="94">+94</option>
+                          <option data-countryCode="SH" value="290">+290</option>
+                          <option data-countryCode="KN" value="1869">+1869</option>
+                          <option data-countryCode="SC" value="1758">+1758</option>
+                          <option data-countryCode="SD" value="249">+249</option>
+                          <option data-countryCode="SR" value="597">+597</option>
+                          <option data-countryCode="SZ" value="268">+268</option>
+                          <option data-countryCode="SE" value="46">+46</option>
+                          <option data-countryCode="CH" value="41">+41</option>
+                          <option data-countryCode="SI" value="963">+963</option>
+                          <option data-countryCode="TW" value="886">+886</option>
+                          <option data-countryCode="TJ" value="7">+7</option>
+                          <option data-countryCode="TH" value="66">+66</option>
+                          <option data-countryCode="TG" value="228">+228</option>
+                          <option data-countryCode="TO" value="676">+676</option>
+                          <option data-countryCode="TT" value="1868">+1868</option>
+                          <option data-countryCode="TN" value="216">+216</option>
+                          <option data-countryCode="TR" value="90">+90</option>
+                          <option data-countryCode="TM" value="7">+7</option>
+                          <option data-countryCode="TM" value="993">+993</option>
+                          <option data-countryCode="TC" value="1649">+1649</option>
+                          <option data-countryCode="TV" value="688">+688</option>
+                          <option data-countryCode="UG" value="256">+256</option>
+                          <option data-countryCode="GB" value="44">+44</option>
+                          <option data-countryCode="UA" value="380">+380</option>
+                          <option data-countryCode="AE" value="971">+971</option>
+                          <option data-countryCode="UY" value="598">+598</option>
+                          <option data-countryCode="US" value="1">+1</option>
+                          <option data-countryCode="UZ" value="7">+7</option>
+                          <option data-countryCode="VU" value="678">+678</option>
+                          <option data-countryCode="VA" value="379">+379</option>
+                          <option data-countryCode="VE" value="58">+58</option>
+                          <option data-countryCode="VN" value="84">+84</option>
+                          <option data-countryCode="VG" value="84">+1284</option>
+                          <option data-countryCode="VI" value="84">+1340</option>
+                          <option data-countryCode="WF" value="681">+681</option>
+                          <option data-countryCode="YE" value="969">+969</option>
+                          <option data-countryCode="YE" value="967">+967</option>
+                          <option data-countryCode="ZM" value="260">+260</option>
+                          <option data-countryCode="ZW" value="263">+263</option>
                         </select>
-                        <input type="tel" placeholder="Phone number" name="phone" required="">
+                        <input type="tel" placeholder="Phone number" id="phone" name="phone" required="">
+                        <span class="error-message"></span>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -557,12 +549,13 @@
                         <option value="Ltdcompany">Ltd company</option>
                         <option value="LLP">LLP</option>
                       </select>
+                      <span class="error-message"></span>
                     </div>
 
                     <div class="col-lg-6">
                       <label for="turnover">Turnover*</label>
                       <select name="turnover" id="turnover" data-charged_name="turnover" data-charged="10">
-                        <option value="0">Please select</option>
+                        <option value="">Please select</option>
                         <option value="3">1-3</option>
                         <option value="6">3-6</option>
                         <option value="9">6-9</option>
@@ -575,15 +568,16 @@
                         <option value="100">75-100</option>
                         <option value="51">50+</option>
                       </select>
+                      <span class="error-message"></span>
                     </div>
 
-                    <div class="col-lg-3">
-                      <label for="vat_registered">Are you VAT registered?</label>
-                      <div class="vat-box">
+                    <div class="col-lg-6">
+                      <label>Are you VAT registered?</label>
+                      <div class="vat-wrap d-flex gap-20 mt-5">
                         <span>
                           <input type="radio" id="vat_registered_yes" name="vat_registered"
                             data-charged_name="vat_registered" data-charged="20" value="yes">
-                          </label for="vat_registered_yes"> Yes </label>
+                          <label for="vat_registered_yes"> Yes </label>
                         </span>
                         <span>
                           <input type="radio" id="vat_registered_no" name="vat_registered" value="no"
@@ -591,93 +585,103 @@
                           <label for="vat_registered_no"> No </label>
                         </span>
                       </div>
+                      <span class="error-message"></span>
                     </div>
 
-                    <div class="col-lg-4">
-                      <label for="payroll">Would you like us to take care of your payroll?</label>
-                      <div class="payroll">
-                        <label> <input type="radio" name="payroll" data-charged_name="payroll" data-charged="12"
-                            value="yes">
-                          Yes </label>
-                        <label> <input type="radio" name="payroll" value="no" data-charged_name="payroll"
-                            data-charged="0"> No </label>
+                    <div class="col-lg-6">
+                      <label>Would you like us to take care of your payroll?</label>
+                      <div class="payroll-wrap d-flex gap-20 mt-5">
+                        <span>
+                          <input id="payroll_yes" type="radio" name="payroll" data-charged_name="payroll"
+                            data-charged="12" value="yes">
+                          <label for="payroll_yes"> Yes </label>
+                        </span>
+                        <span>
+                          <input id="payroll_no" type="radio" name="payroll" value="no" data-charged_name="payroll"
+                            data-charged="0">
+                          <label for="payroll_no"> No </label>
+                        </span>
+                      </div>
+                      <span class="error-message"></span>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <label>Would you need us to manage your pension scheme?</label>
+                      <div class="pension-wrap d-flex gap-20 mt-5">
+                        <span>
+                          <input id="pension_yes" type="radio" name="pension_scheme" data-charged_name="pension_scheme"
+                            data-charged="24" value="yes">
+                          <label for="pension_yes"> Yes </label>
+                        </span>
+                        <span>
+                          <input id="pension_no" type="radio" name="pension_scheme" value="no"
+                            data-charged_name="pension_scheme" data-charged="0">
+                          <label for="pension_no"> No </label>
+                        </span>
                       </div>
                     </div>
 
-                    <div class="col-lg-5">
-                      <label for="pension_scheme">Would you need us to manage your pension scheme?</label><br>
-                      <label>
-                        <input type="radio" name="pension_scheme" data-charged_name="pension_scheme" data-charged="24"
-                          value="yes">
-                        Yes
-                      </label>
-                      <label> <input type="radio" name="pension_scheme" data-charged_name="pension_scheme"
-                          data-charged="0" value="no"> No </label>
-                    </div>
+                    <div class="col-lg-9">
 
-                    <div class="col-lg-8 contact-p">
-                      <div class="row row-gap-25 text-left">
-
-                        <div class="col-lg-12 hide" id="free_formation">
-                          <input type="checkbox" name="free_formation" required>
-                          <label for="free_formation">
-                            Click here if you would like us to form your limited company free of charge
-                          </label>
+                      <div class="row row-gap-20 text-left">
+                        <div class="col-lg-12 hide" id="self_assessments">
+                          <div class="row align-items-center mb-15">
+                            <div class="col-lg-6">
+                              <label for="assessments">No. of partners requiring Self Assessments *</label>
+                              <input class="mb-0" type="number" id="assessments" data-charged_name="self_assessments"
+                                data-charged="10" placeholder="No. of partners requiring Self Assessments"
+                                name="self_assessments" required="">
+                              <span class="error-message"></span>
+                            </div>
+                          </div>
                         </div>
 
                         <div class="col-lg-12 hide" id="dormant">
+                          <div class="d-flex  flex-column">
+                            <span>
+                              <input id="dormant_yes" type="radio" name="dormant" data-charged_name="dormant"
+                                data-charged="10" required value="yes">
+                              <label for="dormant_yes"> Click here if your company will be dormant </label>
+                            </span>
+                            <span>
+                              <input id="dormant_no" type="radio" name="dormant" data-charged_name="dormant"
+                                data-charged="10" required value="Yes">
+                              <label for="dormant_no">Click here if your company will be not trading</label>
+                            </span>
+                          </div>
+                          <span class="error-message"></span>
+                        </div>
+
+                        <div class="col-lg-12 hide" id="free_formation">
+                          <input id="formation" type="checkbox" name="free_formation" required>
+                          <label for="formation">
+                            Click here if you would like us to form your limited company free of charge
+                          </label>
+                          <span class="error-message"></span>
+                        </div>
+
+                        <div class="col-lg-12 hide" id="payslip_payroll">
                           <div class="row align-items-center mb-15">
-                            <div class="col-lg-5">
-                              <label>Dormant / Not Domant*</label>
+                            <div class="col-lg-6">
+                              <label for="payroll">How many payslips for payroll*</label>
                             </div>
-                            <div class="col-lg-7">
-                              <div class="d-flex flex-column">
-                                <span>
-                                  <input type="radio" name="dormant" data-charged_name="dormant" data-charged="10"
-                                    required value="yes">
-                                  Click here if your company will be dormant
-                                </span>
-                                <span>
-                                  <input type="radio" name="dormant" data-charged_name="dormant" data-charged="0"
-                                    required value="no">
-                                  Click here if your company will be not trading
-                                </span>
-                              </div>
+                            <div class="col-lg-6">
+                              <input class="m-0" type="number" id="payroll" placeholder="How many payslips for payroll"
+                                name="payslip_payroll" required="">
+                              <span class="error-message"></span>
                             </div>
                           </div>
                         </div>
 
-                        <div class="col-lg-12 hide" id="self_assessments">
-                          <div class="row align-items-center mb-15">
-                            <div class="col-lg-5">
-                              <label for="self_assessments">No. of partners requiring Self Assessments *</label>
-                            </div>
-                            <div class="col-lg-7 ">
-                              <input type="number" data-charged_name="self_assessments" data-charged="10"
-                                placeholder="No. of partners requiring Self Assessments" name="self_assessments"
-                                required="">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-12 hide" id="payslip_payroll">
-                          <div class="row align-items-center mb-15">
-                            <div class="col-lg-5">
-                              <label>How many payslips for payroll*</label>
-                            </div>
-                            <div class="col-lg-7">
-                              <input type="number" placeholder="How many payslips for payroll" name="payslip_payroll"
-                                required="">
-                            </div>
-                          </div>
-                        </div>
                         <div class="col-lg-12 hide" id="paysli_pension">
                           <div class="row align-items-center mb-15">
-                            <div class="col-lg-5">
-                              <label>How many payslips for pension*</label>
+                            <div class="col-lg-6">
+                              <label for="pension">How many payslips for pension*</label>
                             </div>
-                            <div class="col-lg-7">
-                              <input type="text" placeholder="How many payslips for pension" name="paysli_pension"
-                                required="">
+                            <div class="col-lg-6">
+                              <input class="m-0" type="text" id="pension" placeholder="How many payslips for pension"
+                                name="paysli_pension" required="">
+                              <span class="error-message"></span>
                             </div>
                           </div>
                         </div>
@@ -718,7 +722,7 @@
 
             <div id="stepTwo">
 
-              <div class="row">
+              <div class="row border-bottom pb-25">
                 <div class="col-lg-12">
                   <div class="formStep-container">
                     <div class="step active" id="step1-indicator">
@@ -729,7 +733,7 @@
                         </path>
                       </svg>
                     </div>
-                    <div class="step active" id="step2-indicator">
+                    <div class="step active hide" id="step2-indicator">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M14.962 13.41q-1.391.09-2.962.09t-2.962-.09c.267 4.954 1.884 8.74 2.962 8.74s2.694-3.785 2.962-8.74m-7.936-.188c.152 3.571.961 6.533 2.06 8.442C4.983 20.404 2 16.554 2 12v-.09q1.992.93 5.026 1.312m-4.784-3.44c1.127.662 2.719 1.14 4.769 1.42.103-3.76.933-6.882 2.074-8.866C5.67 3.386 3.03 6.23 2.242 9.782m6.765 1.622C9.129 6.057 10.864 1.85 12 1.85s2.871 4.207 2.993 9.554A44 44 0 0 1 12 11.5a44 44 0 0 1-2.993-.096m7.967 1.818c2.023-.256 3.697-.69 5.026-1.311V12c0 4.554-2.984 8.404-7.085 9.664 1.098-1.91 1.907-4.871 2.06-8.442zm4.784-3.44c-1.127.662-2.719 1.14-4.769 1.42-.103-3.76-.933-6.882-2.074-8.866 3.415 1.05 6.055 3.894 6.843 7.446"
@@ -747,86 +751,88 @@
                   </div>
                 </div>
               </div>
-              <p class="text-left border-bottom mt-20">Fields marked with an asterisk (*) are required.</p>
+              <p class="mb-0 text-center mt-20">Fields marked with an asterisk (*) are required.</p>
 
-              <div class="d-flex flex-column row-gap-25 mt-20 border-bottom pb-25 ">
-                <h5 class="text-left mb-0">Your Details</h5>
-                <p class="text-left mb-0">Please provide details of yourself:</p>
-                <div class="col-lg-8 contact-p">
-                  <div class="step-form">
-                    <div class="row text-left row-gap-25">
-                      <div class="col-lg-12">
-                        <div class="row align-items-center mb-15">
-                          <div class="col-lg-5">
-                            <label for="mail_forward">Registered office and mail forwarding</label>
+              <div class="d-flex flex-column row-gap-25 mt-20 border-bottom pb-25">
+
+                <div class="step-form contact-p">
+                  <div class="row text-left row-gap-25">
+                    <div class="col-lg-12">
+                      <div class="row align-items-center mb-15">
+                        <div class="col-lg-5">
+                          <label for="mail_forward">Registered office and mail forwarding</label>
+                        </div>
+                        <div class="col-lg-7">
+                          <input type="checkbox" data-charged_name="mail_forward" data-charged="5" name="mail_forward"
+                            id="mail_forward">
+                          <span class="error-message"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="row align-items-center mb-15">
+                        <div class="col-lg-5">
+                          <label for="statement_filing_service">Confirmation statement filing service</label>
+                        </div>
+                        <div class="col-lg-7">
+                          <div class="d-flex gap-40">
+                            <span>
+                              <input type="radio" data-charged_name="statement_filing_service" data-charged="5"
+                                name="statement_filing_service" id="statement_dormant" value="dormant">
+                              <label for="statement_dormant">Yes</label>
+                            </span>
+                            <span>
+                              <input type="radio" name="statement_filing_service" id="statement_not_trading"
+                                value="not_trading">
+                              <label for="statement_not_trading">No</label>
+                            </span>
                           </div>
-                          <div class="col-lg-7">
-                            <input type="checkbox" data-charged_name="mail_forward" data-charged="5" name="mail_forward"
-                              id="mail_forward">
-                          </div>
+                          <span class="error-message"></span>
                         </div>
                       </div>
 
-                      <div class="col-lg-12">
-                        <div class="row align-items-center mb-15">
-                          <div class="col-lg-5">
-                            <label for="statement_filing_service">Confirmation statement filing service</label>
-                          </div>
-                          <div class="col-lg-7">
-                            <div class="d-flex flex-column">
-                              <span>
-                                <input type="radio" data-charged_name="statement_filing_service" data-charged="5"
-                                  name="statement_filing_service" id="statement_dormant" value="dormant">
-                                <label for="statement_dormant">Yes</label>
-                              </span>
-                              <span>
-                                <input type="radio" name="statement_filing_service" id="statement_not_trading"
-                                  value="not_trading">
-                                <label for="statement_not_trading">No</label>
-                              </span>
-                            </div>
-                          </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="row align-items-center mb-15">
+                        <div class="col-lg-5">
+                          <label for="secretarial_service">Full company secretarial service</label>
                         </div>
-
-                      </div>
-
-                      <div class="col-lg-12">
-                        <div class="row align-items-center mb-15">
-                          <div class="col-lg-5">
-                            <label for="secretarial_service">Full company secretarial service</label>
-                          </div>
-                          <div class="col-lg-7">
-                            <div class="d-flex flex-column">
-                              <span>
-                                <input type="radio" name="secretarial_service" id="secretarial_dormant" value="dormant">
-                                <label for="secretarial_dormant">Yes</label>
-                              </span>
-                              <span>
-                                <input type="radio" name="secretarial_service" id="secretarial_not_trading"
-                                  value="not_trading">
-                                <label for="secretarial_not_trading">No</label>
-                              </span>
-                            </div>
+                        <div class="col-lg-7">
+                          <div class="d-flex gap-40">
+                            <span>
+                              <input type="radio" name="secretarial_service" id="secretarial_dormant" value="dormant">
+                              <label for="secretarial_dormant">Yes</label>
+                            </span>
+                            <span>
+                              <input type="radio" name="secretarial_service" id="secretarial_not_trading"
+                                value="not_trading">
+                              <label for="secretarial_not_trading">No</label>
+                            </span>
+                            <span class="error-message"></span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
               </div>
 
               <div class="d-flex justify-content-between align-items-center mt-20">
 
                 <div class="d-flex gap-40 ">
                   <button type="button" id="step2-prev" class="read-btn submit-btn">
-                    Back
-                    <span>
+                    <span class="rotate-180">
                       <svg fill=" #fff" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path
                           d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
                         </path>
                       </svg>
                     </span>
+                    Back
+
                   </button>
                   <button type="button" id="step2-next" class="read-btn submit-btn">
                     Save Continue
@@ -847,7 +853,7 @@
 
             <div id="stepThree">
 
-              <div class="row">
+              <div class="row border-bottom pb-25">
                 <div class="col-lg-12">
                   <div class="formStep-container">
                     <div class="step active" id="step1-indicator">
@@ -858,7 +864,7 @@
                         </path>
                       </svg>
                     </div>
-                    <div class="step active" id="step2-indicator">
+                    <div class="step active hide" id="step2-indicator">
                       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M14.962 13.41q-1.391.09-2.962.09t-2.962-.09c.267 4.954 1.884 8.74 2.962 8.74s2.694-3.785 2.962-8.74m-7.936-.188c.152 3.571.961 6.533 2.06 8.442C4.983 20.404 2 16.554 2 12v-.09q1.992.93 5.026 1.312m-4.784-3.44c1.127.662 2.719 1.14 4.769 1.42.103-3.76.933-6.882 2.074-8.866C5.67 3.386 3.03 6.23 2.242 9.782m6.765 1.622C9.129 6.057 10.864 1.85 12 1.85s2.871 4.207 2.993 9.554A44 44 0 0 1 12 11.5a44 44 0 0 1-2.993-.096m7.967 1.818c2.023-.256 3.697-.69 5.026-1.311V12c0 4.554-2.984 8.404-7.085 9.664 1.098-1.91 1.907-4.871 2.06-8.442zm4.784-3.44c-1.127.662-2.719 1.14-4.769 1.42-.103-3.76-.933-6.882-2.074-8.866 3.415 1.05 6.055 3.894 6.843 7.446"
@@ -876,123 +882,35 @@
                   </div>
                 </div>
               </div>
-              <p class="text-left border-bottom mt-20">Please check and confirm your order below by accepting the terms
-                and conditions before proceeding to payment.</p>
 
-              <h5 class="text-left">Order Review</h5>
-              <table class="border-bottom" id="additional-charges">
-                <tbody></tbody>
-                <!-- <tbody>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Full Name</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Email Address</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Phone Number</td>
-                    <td>+91-9876543210</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Type Of Buisness</td>
-                    <td>+91-9876543210</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Turnover</td>
-                    <td>+91-9876543210</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">VAT registered</td>
-                    <td>+91-9876543210</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Payroll</td>
-                    <td>+91-9876543210</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Pension scheme</td>
-                    <td>+91-9876543210</td>
-                  </tr>
-                </tbody> -->
-              </table>
+              <div class="d-flex flex-column border-bottom  pb-25">
+                <p class="text-center mt-20">Please check and confirm your order below by accepting the
+                  terms
+                  and conditions before proceeding to payment.</p>
 
-              <h5 class="text-left">Additional Charges</h5>
-              <table class="border-bottom" id="order-review">
-                <tbody></tbody>
-                <!-- <tbody>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Price excl. VAT</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">No. of partners requiring Self Assessments</td>
-                    <td>£10</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Limited Company Free of Charge</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Payroll</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Pension</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Registered office and mail forwarding</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">statement filing service</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td class="text-left">Secretarial service</td>
-                    <td>£39.99</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <h5 class="text-left mb-0">Total Charges</h5>
-                    </td>
-                    <td>
-                      <h5 class="mb-0">£39.99</h5>
-                    </td>
-                  </tr>
-                </tbody> -->
-              </table>
+                <h5 class="text-left mb-0">Order Review</h5>
+                <table id="order-review">
+                  <tbody></tbody>
+                </table>
+
+                <h5 class="text-left mb-0">Additional Charges</h5>
+                <table id="additional-charges">
+                  <tbody></tbody>
+                </table>
+              </div>
 
               <div class="d-flex justify-content-between align-items-center mt-20">
                 <div class="d-flex gap-40 mt-20">
                   <button type="button" id="step3-prev" class="read-btn submit-btn">
-                    Back
-                    <span>
+
+                    <span class="rotate-180">
                       <svg fill=" #fff" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path
                           d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
                         </path>
                       </svg>
                     </span>
+                    Back
                   </button>
                   <button type="submit" name="submit" id="step3-next" class="read-btn submit-btn">
                     Pay Now
